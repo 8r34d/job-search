@@ -1,15 +1,10 @@
 package spencer.dean.jobsearch;
 
-import java.util.Iterator;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-
-import spencer.dean.jobsearch.Data;
 
 public class JobSearchTest {
 
@@ -25,16 +20,6 @@ public class JobSearchTest {
     @AfterTest
     public void teardown() {
         driver.quit();
-    }
-
-    @DataProvider(name = "demoData")
-    public static Iterator<String[]> demoDataProvider() {
-        return Data.getIteratorCsvSkipLine("src/test/resources/demo.csv", 1);
-    }
-
-    @Test(dataProvider = "demoData")
-    public void demoData(String dataLine) {
-        Assert.assertFalse(dataLine.isEmpty());
     }
 
     @Test
@@ -79,5 +64,7 @@ public class JobSearchTest {
         home.getSearchDirectEmployer().click();
         Results results = home.submitSearch();
         Assert.assertTrue(results.getHeader().getText().equals("Job results"));
+        Assert.assertTrue(results.getPagingTwoLink().getAttribute("href").equals("javascript:__doPostBack('srpPager','2')"));
+        Assert.assertTrue(driver.getPageSource().contains("SITECATALYST CODE"));
     }
 }
