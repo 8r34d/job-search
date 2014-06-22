@@ -9,9 +9,9 @@ public class Results {
 
     private WebDriver driver;
     private String baseUrl;
-    private String pageUrl = Pages.HOME.url();
+    private String pageUrl = Pages.RESULTS.url();
 
-    @FindBy(css=".row .twelve.columns h1")
+    @FindBy(css=".breadcrumb > ul:nth-child(1) > li:nth-child(2)")
     private WebElement header;
 
     Results(WebDriver driver, String baseUrl) {

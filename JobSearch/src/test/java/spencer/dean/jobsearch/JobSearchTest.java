@@ -77,6 +77,7 @@ public class JobSearchTest {
         home.getSearchSalaryRate().selectByVisibleText("at least £12,000.00");
         home.getSearchJobType().selectByVisibleText("Permanent");
         home.getSearchDirectEmployer().click();
-        home.getSearchSubmit().click();
+        Results results = home.submitSearch();
+        Assert.assertTrue(results.getHeader().getText().equals("Job results"));
     }
 }

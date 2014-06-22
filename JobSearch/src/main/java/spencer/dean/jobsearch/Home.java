@@ -90,6 +90,11 @@ public class Home {
         return searchSubmit;
     }
 
+    public Results submitSearch() {
+        getSearchSubmit().click();
+        return new Results(driver, baseUrl);
+    }
+
     public Boolean selectContainsOption(Select select, String option) {
         Boolean result = false;
         List<WebElement> options = select.getOptions();
