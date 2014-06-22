@@ -2,7 +2,7 @@
 
 ## Coding Challenge
 
-Using WebDriver with Java perform create an automated test of the following:
+Using WebDriver with Java create an automated test of the following:
 
 + Navigate to the cwjobs.co.uk homepage
  + Assert that the SALARY drop down contains “Daily rate”
